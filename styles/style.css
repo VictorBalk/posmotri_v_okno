@@ -9,6 +9,9 @@ html {
 }
 
 .page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
@@ -38,10 +41,9 @@ ol {
 }
 
 .title {
-  /* padding-bottom: 26px; */
   padding-bottom: 20px;
   color: #fff;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-weight: 700;
   font-size: 75px;
   line-height: 94%;
@@ -53,32 +55,18 @@ ol {
   justify-items: center;
   align-items: flex-end;
   gap: 30px;
-  padding: 133px 30px;
 }
 
 .content__list {
   position: relative;
   inset: 0;
+  width: 400px;
   height: 300px;
   overflow-y: scroll;
 }
 
-.content__list::-webkit-scrollbar {
-  width: 10px;
-  background-color: transparent;
-  /* display: none; */
-}
-/* .content__list:hover::-webkit-scrollbar{
-  display: block;
-} */
-
 .content__list-item:not(:last-child) {
   padding-bottom: 30px;
-}
-
-.content__list::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #000;
 }
 
 .content__details {
@@ -92,12 +80,13 @@ ol {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 4px;
 }
 
 .content__video-card-thumbnail {
-  width: 191px;
+  width: 194px;
   height: 103px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__accent {
@@ -106,13 +95,11 @@ ol {
 
 .content__card-link {
   display: block;
-  margin: 2px;
-  outline: none;
   text-decoration: none;
+  margin: 2px;
 }
 
-.content__card-link:hover p,
-.content__card-link:hover h2 {
+.content__card-link:hover {
   text-decoration: underline;
   text-decoration-color: #fff;
   text-underline-offset: 6px;
@@ -120,6 +107,7 @@ ol {
 
 .content__card-link:focus-visible {
   outline: 1px solid rgba(255 255 255);
+  outline-offset: 1px;
 }
 
 .content__card-link_current {
@@ -129,7 +117,7 @@ ol {
 .content__video-card-title {
   padding-bottom: 6px;
   color: #fff;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-weight: 700;
   font-size: 30px;
   font-style: normal;
@@ -139,7 +127,7 @@ ol {
 
 .content__video-card-description {
   color: #fff;
-  font-family: 'Fira Sans', 'Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
   font-style: normal;
@@ -156,7 +144,7 @@ ol {
 .search-form__fieldset-title {
   padding-bottom: 5px;
   color: #fff;
-  font-family: 'Fira Sans', 'Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
 }
@@ -184,30 +172,29 @@ ol {
 .search-form__label {
   display: flex;
   width: fit-content;
-  outline: none;
 }
 
 .search-form__textfield {
-  border-top: 1px solid rgba(255 255 255 / 0.7);
+  min-width: 225px;
+  border-top: 1px solid rgba(255 255 255);
   border-right: none;
-  border-bottom: 1px solid rgba(255 255 255 / 0.7);
+  border-bottom: 1px solid rgba(255 255 255);
   border-left: none;
-  outline: none;
-  color: rgba(255 255 255 / 0.7);
-  font-family: 'Fira Sans', 'Condensed';
+  color: rgba(255 255 255);
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
   font-style: normal;
   line-height: normal;
   background-color: transparent;
-  cursor: pointer;
+  cursor: text;
   appearance: none;
 }
 
 .button {
   border: 1px solid #fff;
   color: #fff;
-  font-family: 'Fira Sans', 'Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 700;
   font-size: 18px;
   font-style: normal;
@@ -215,18 +202,6 @@ ol {
   text-align: center;
   background-color: transparent;
   cursor: pointer;
-}
-
-.search-form__submit-button {
-  align-self: self-end;
-  width: 193px;
-  padding: 4px 0;
-  /* width: 100%; */
-}
-
-.more-button {
-  width: 100%;
-  padding: 4px;
 }
 
 input[type='checkbox']:checked + span {
@@ -237,26 +212,30 @@ input[type='checkbox']:checked + span {
   background-color: #fff;
 }
 
-/* .search-form__textfield:active{
-  margin: 1px;
-  outline: 1px solid rgba(255 255 255 );
-} */
-
-.button,
-.search-form__label,
-.search-form__textfield :focus {
-  outline: none;
-}
-
 .button:focus-visible {
   outline: 1px solid rgba(255 255 255);
-  outline-offset: 1px;
+  outline-offset: -3px;
 }
 
-.button:hover,
-.button:active {
+.search-form__submit-button {
+  align-self: self-end;
+  width: 193px;
+  padding: 4px 0;
+}
+
+.more-button {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.button:hover {
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
+}
+
+.button:active,
+.content__card-link:active {
+  text-decoration: none;
   background-color: #545050;
 }
 
@@ -266,7 +245,7 @@ input[type='checkbox']:checked + span {
   cursor: pointer;
 }
 
-.search-form__label:has(input:focus-visible) {
+.search-form__label:has( input:focus-visible) {
   outline: 1px solid rgba(255 255 255);
   outline-offset: 1px;
 }
@@ -275,9 +254,8 @@ input[type='checkbox']:checked + span {
   position: relative;
   inset: 0;
   width: 711px;
-  /* height: 386px; */
-  height: 403px;
-  padding-bottom: 16px;
+  height: 386px;
+  margin-bottom: 16px;
 }
 
 .result__video {
@@ -295,4 +273,10 @@ input[type='checkbox']:checked + span {
   block-size: 1px;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+.button:focus,
+.search-form__textfield:focus,
+.content__card-link:focus {
+  outline: none;
 }
